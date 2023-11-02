@@ -12,7 +12,7 @@ describe('{- Pruebas en <AddCategory /> -}', () => {
     });
 
     test('Debería de llamar onNewCategory si el input tiene un valor', () => {
-        const inputValue = 'Auarelion Sol';
+        const inputValue = 'Aurelion Sol';
         const onNewCategory = jest.fn();
 
         // TODO: ????
@@ -29,18 +29,17 @@ describe('{- Pruebas en <AddCategory /> -}', () => {
         expect(onNewCategory).toHaveBeenCalledWith(inputValue);
     })
 
-    test('No debe de llamar el onNewCategory si el input está vacío', async () => {
-        const inputValue = '';
+    test('No debe de llamar el onNewCategory si el input está vacío', () => {
+        // const inputValue = '';
         const onNewCategory = jest.fn();
 
-        // TODO: ????
         render(<AddCategory onNewCategory={ onNewCategory }/>);
-        const input = screen.getByRole('textbox');
+        // const input = screen.getByRole('textbox');
         const form = screen.getByRole('form');
 
-        fireEvent.input(input, { target: { value: inputValue } });
+        // fireEvent.input(input, { target: { value: inputValue } });
         fireEvent.submit(form);
 
         expect(onNewCategory).toHaveBeenCalledTimes(0);
-    })
+    });
 }); 
